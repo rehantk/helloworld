@@ -3,6 +3,7 @@ pipeline {
   stages {
     stage('Code Analysis') {
       steps {
+        withSonarQubeEnv('sonarqube')
         sh 'mvn sonar:sonar -D sonar.login=sonar -D sonar.password=sonar'
       }
     }
