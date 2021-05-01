@@ -4,14 +4,7 @@ pipeline {
     stage('Code Analysis') {
       steps {
         withSonarQubeEnv('sonarqube')
-        sh 'mvn sonar:sonar -D sonar.login=sonar -D sonar.password=sonar'
-      }
-    }
-    stage("Quality Gate") {
-      steps {
-        timeout(time: 1, unit: 'HOURS') {
-          waitForQualityGate abortPipeline: true
-        }  
+        sh 'mvn sonar:sonar'
       }
     }
   }
