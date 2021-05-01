@@ -2,9 +2,9 @@ pipeline {
   agent any
   stages {
     stage('Code Analysis') {
-      steps {
-        withSonarQubeEnv('sonarqube')
-          sh 'mvn sonar:sonar'
+        def mvnHome = tool name: 'maven3', type: 'maven'
+      withSonarQubeEnv('sonarqube') {
+          sh "${mvnHome}/bin/mvn sonar:sonar'
       }
     }
   }
