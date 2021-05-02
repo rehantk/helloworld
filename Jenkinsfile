@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage ('Testing'){
             steps {
-                sh ' mvn test'
+                sh ' mvn test package'
             }
         }
         stage ('Scanning'){
