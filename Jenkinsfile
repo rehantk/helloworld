@@ -10,7 +10,6 @@ pipeline {
                 git credentialsId: 'git', url: 'https://github.com/rehantk/helloworld.git'
                 }
             }
-        }
         stage ('Code compile'){
             steps {
 
@@ -20,7 +19,6 @@ pipeline {
         stage ('Code Test'){
             steps {
                 sh 'mvn test'
-                }
             }
         }
         stage ('Scanning'){
@@ -34,7 +32,6 @@ pipeline {
             steps {
                 sh 'mvn install'
                 }
-            }
         }
     }
 }
