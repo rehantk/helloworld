@@ -5,11 +5,6 @@ pipeline {
         maven 'maven3'
     }
     stages {
-        stage ('Code Checkout'){
-            steps {
-                git credentialsId: 'git', url: 'https://github.com/rehantk/helloworld.git'
-                }
-            }
         stage ('Code compile'){
             steps {
 
