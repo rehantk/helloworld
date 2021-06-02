@@ -22,10 +22,15 @@ pipeline {
                     sh ' mvn sonar:sonar -D sonar.login=${Token}'
                 }
             }
-        }
-        stage ('Deploy to localrepo'){
+        }      
+        stage ('Bulding Docker image){
             steps {
-                sh 'mvn install'
+                sh 'docker build -t mydeploytomcat .'
+                }
+        }
+        stage ('Deploy in Tomcat container'){
+            steps {
+                sh 'docker run -p 8080:8080 -d mydeploytomcat'
                 }
         }
     }
