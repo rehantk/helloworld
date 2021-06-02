@@ -1,2 +1,4 @@
-FROM tomcat
-COPY /target/helloworld-1.1.jar /usr/local/tomcat/webapps/
+FROM tomcat:8.0-alpine
+ADD sample.war /usr/local/tomcat/webapps/
+EXPOSE 8080
+CMD ["catalina.sh", "run"]
