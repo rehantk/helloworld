@@ -23,7 +23,7 @@ pipeline {
                 }
             }
         }      
-        stage ('Bulding Docker image){
+        stage ('Bulding Docker image'){
             steps {
                 sh 'docker build -t mydeploytomcat .'
                 }
